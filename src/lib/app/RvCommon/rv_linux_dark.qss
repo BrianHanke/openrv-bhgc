@@ -218,7 +218,7 @@ QCheckBox::indicator:unchecked {
 }
 
 QCheckBox::indicator:checked {
-    image: url(C:/onedrive/Software/open-rv/bhgc/check.png);
+    image: url(:images/bhgc_check.png);
     background: black;
     /*image: url(":images/check_box_checked.png");*/
 }
@@ -301,7 +301,7 @@ QComboBox {
 }
     
 QComboBox::down-arrow {
-    image: url("C:/onedrive/Software/open-rv/bhgc/down_arrow.png");
+    image: url(":images/bhgc_down_arrow.png");
 }
     
 QComboBox::disabled {
@@ -831,7 +831,7 @@ QTreeView::item:selected {
 }
     
 QTreeView::indicator:checked {
-    image: url(C:/onedrive/Software/open-rv/bhgc/check.png);
+    image: url(:images/bhgc_check.png);
     background: rgb(43,43,43);
 }
     
