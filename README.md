@@ -1,12 +1,12 @@
 32-core+ vCPU VM - 30 minute build time  
-Download OpenRV-BHGC as a ZIP file.
+Download OpenRV-BHGC as a ZIP file.  
 Open a MSYS2 MINGW64 console and run:
   
 ```
 cd /c/Source  
 git clone --recursive https://github.com/AcademySoftwareFoundation/OpenRV.git
 ```
-Merge the contents of the openrv-bhgc.zip with the main source code, then run:
+Merge the contents of openrv-bhgc.zip with the main source code, then run:
 ```
 cd OpenRV
 source rvcmds.sh  
