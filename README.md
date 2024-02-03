@@ -1,5 +1,5 @@
-32-core+ vCPU VM - 30 minute build time
-Open a MSYS2 MINGW64 console  and run:
+32-core+ vCPU VM - 30 minute build time  
+Open a MSYS2 MINGW64 console and run:
   
 ```
 cd /c/Source  
