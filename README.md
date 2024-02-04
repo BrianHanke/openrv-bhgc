@@ -22,7 +22,9 @@ rvbootstrap
 ```
 ```
 cd /c/Source/OpenRV/_build/stage  
-find . -name "*.pdb" -type f -delete
+find . -name "*.pdb" -type f -delete  
+find . -name "*.lib" -type f -delete  
+find . -name "*.ext" -type f -delete  
 mv app openrv-bhgc
 rm -d openrv-bhgc/src
 7z a openrv-bhgc.zip openrv-bhgc
