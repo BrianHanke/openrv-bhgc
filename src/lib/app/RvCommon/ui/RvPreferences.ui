@@ -1776,7 +1776,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Fast ;oopback+pre-roll audio on device open (platform audio only)</string>
+        <string>Fast loopback+pre-roll audio on device open (platform audio only)</string>
        </property>
        <property name="checked">
         <bool>false</bool>
