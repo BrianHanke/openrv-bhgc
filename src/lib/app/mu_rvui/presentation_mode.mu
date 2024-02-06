@@ -498,11 +498,11 @@ class: PresentationControlMinorMode : MinorMode
              Menu {
                  {"Image", Menu {
                     {"Scale", Menu {
-                         {"_",  nil},
-                         {"On Presentation Device",  nil,  nil, inactiveState},
-                         {"   1:1",  scaleOneToOne,  "!", presentationModeState},
-                         {"   1:2",  scaleOneToTwo,  nil, presentationModeState},
-                         {"   Frame Width",  scaleFrameWidth,  "alt f", presentationModeState},
+                         //{"_",  nil},
+                         //{"On Presentation Device",  nil,  nil, inactiveState},
+                         //{"   1:1",  scaleOneToOne,  "!", presentationModeState},
+                         //{"   1:2",  scaleOneToTwo,  nil, presentationModeState},
+                         //{"   Frame Width",  scaleFrameWidth,  "alt f", presentationModeState},
                         //}}}},
                  //{"View", Menu {
                     //{"Presentation Settings", Menu {
