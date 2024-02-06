@@ -28,5 +28,6 @@ find . -name "*.lib" -type f -delete
 find . -name "*.ext" -type f -delete  
 mv app openrv-bhgc
 rm -d openrv-bhgc/src
+rm -rf openrv-bhgc/include
 7z a openrv-bhgc.zip openrv-bhgc
 ```
