@@ -193,7 +193,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Click in view top play</string>
+        <string>Click in view to play</string>
        </property>
       </widget>
       <widget class="QCheckBox" name="startupResizeToggle">
