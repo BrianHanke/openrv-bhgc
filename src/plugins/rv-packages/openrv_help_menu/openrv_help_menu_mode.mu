@@ -146,10 +146,10 @@ class: OpenRVHelpMenuMinorMode : MinorMode
                 {"Utilities",           nil, nil, inactiveState},
                 {"   Describe...",         describeHelp, "?"},
                 {"   Describe Key Binding...", describeKeyBinding, nil},
-                {"   Show Current Bindings...", dumpBindings, nil},
-                {"   Show Environment...",    ~showEnv},
+                {"   Show Current Bindings", dumpBindings, nil},
+                {"   Show Environment",    ~showEnv},
                 {"_",                   nil},
-                {"Mu Command API Browser...",  docbrowser, nil}
+                {"Mu Command API Browser",  docbrowser, nil}
         };
 
         Menu menu = Menu {{"Help", menuList}};

@@ -296,13 +296,13 @@ RvApplication::RvApplication(int argc, char** argv)
     m_lazyBuildTimer->setSingleShot(true);
     m_lazyBuildTimer->start();
 
-    m_aboutAct = new QAction(tr("About Open RV..."), this);
+    m_aboutAct = new QAction(tr("About Open RV"), this);
     m_aboutAct->setStatusTip(tr("Information about this version of Open RV"));
     m_aboutAct->setMenuRole(QAction::AboutRole);
     connect(m_aboutAct, SIGNAL(triggered()), this, SLOT(about()));
 
-    m_prefAct = new QAction(tr("Preferences..."), this);
-    m_prefAct->setStatusTip(tr("Configure RV for this computer"));
+    m_prefAct = new QAction(tr("Preferences"), this);
+    m_prefAct->setStatusTip(tr("Configure Open RV"));
     m_prefAct->setMenuRole(QAction::PreferencesRole);
     connect(m_prefAct, SIGNAL(triggered()), this, SLOT(prefs()));
 
