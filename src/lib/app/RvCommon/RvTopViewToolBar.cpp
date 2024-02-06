@@ -95,14 +95,14 @@ RvTopViewToolBar::build()
     b->setIcon(QIcon(":/images/view_back.png"));
     b->setProperty("tbstyle", QVariant(QString("view_menu")));
     b->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    b->setToolTip("Switch to previous View");
+    b->setToolTip("Previous View");
 
     m_viewForwardAction = addAction("");
     b = dynamic_cast<QToolButton*>(widgetForAction(m_viewForwardAction));
     b->setIcon(QIcon(":/images/view_forwd.png"));
     b->setProperty("tbstyle", QVariant(QString("view_menu")));
     b->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    b->setToolTip("Switch to next View");
+    b->setToolTip("Next View");
 
     connect(m_viewBackAction, SIGNAL(triggered(bool)), this, SLOT(previousViewNode()));
     connect(m_viewForwardAction, SIGNAL(triggered(bool)), this, SLOT(nextViewNode()));
@@ -133,7 +133,7 @@ RvTopViewToolBar::build()
     b->setProperty("tbstyle", QVariant(QString("view_menu")));
     b->setToolButtonStyle(Qt::ToolButtonIconOnly);
     b->setPopupMode(QToolButton::InstantPopup);
-    b->setToolTip("Toggle full-screen mode");
+    b->setToolTip("Toggle full screen");
 
     m_frameAction = addAction("");
     b = dynamic_cast<QToolButton*>(widgetForAction(m_frameAction));
@@ -164,7 +164,7 @@ RvTopViewToolBar::build()
     b->setPopupMode(QToolButton::InstantPopup);
     b->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     m = new QMenu(b);
-    m->addAction("Background")->setDisabled(true);
+    //m->addAction("Background")->setDisabled(true);
     m_blackBGAction = m->addAction("  Black");
     m_18GreyBGAction = m->addAction("  18% Grey");
     m_50GreyBGAction = m->addAction("  50% Grey");
@@ -185,7 +185,7 @@ RvTopViewToolBar::build()
     m_checkerBGAction->setIcon(QIcon(":/images/checker.png"));
     m_crossHatchBGAction->setIcon(QIcon(":/images/cross_hatch.png"));
     b->setMenu(m);
-    m_bgMenuAction->setToolTip("Select background style");
+    m_bgMenuAction->setToolTip("Select background");
 
     connect(m, SIGNAL(aboutToShow()), this, SLOT(bgMenuUpdate()));
     connect(m_blackBGAction, SIGNAL(triggered()), this, SLOT(bgBlack()));
@@ -271,7 +271,7 @@ RvTopViewToolBar::build()
     b->setPopupMode(QToolButton::InstantPopup);
     b->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     m = new QMenu(b);
-    m->addAction("Channels")->setDisabled(true);
+    //m->addAction("Channels")->setDisabled(true);
     m_RGBChannelAction = m->addAction("  Color (RGB)");
     m_RChannelAction = m->addAction("  Red");
     m_GChannelAction = m->addAction("  Green");
@@ -279,7 +279,7 @@ RvTopViewToolBar::build()
     m_AChannelAction = m->addAction("  Alpha");
     m_LChannelAction = m->addAction("  Luminance");
     b->setMenu(m);
-    m_channelMenuAction->setToolTip("Color channel view control");
+    m_channelMenuAction->setToolTip("Color channels");
 
     m_RGBChannelAction->setCheckable(true);
     m_RChannelAction->setCheckable(true);
