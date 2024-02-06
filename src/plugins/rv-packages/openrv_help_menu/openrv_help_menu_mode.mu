@@ -141,15 +141,15 @@ class: OpenRVHelpMenuMinorMode : MinorMode
                 {"_",                   nil},
                 {"   GTO File Format (.rv files)", opUrl(,"https://github.com/AcademySoftwareFoundation/OpenRV/blob/main/docs/rv-manuals/rv-gto.md"), nil},
                 {"_",                   nil},
-                {"   Open RV GitHub", opUrl(,"https://github.com/AcademySoftwareFoundation/OpenRV"), nil},
+                {"   Open RV on GitHub", opUrl(,"https://github.com/AcademySoftwareFoundation/OpenRV"), nil},
                 {"_",                   nil},
                 {"Utilities",           nil, nil, inactiveState},
                 {"   Describe...",         describeHelp, "?"},
                 {"   Describe Key Binding...", describeKeyBinding, nil},
-                {"   Show Current Bindings", dumpBindings, nil},
-                {"   Show Environment",    ~showEnv},
+                {"   Show Current Bindings...", dumpBindings, nil},
+                {"   Show Environment...",    ~showEnv},
                 {"_",                   nil},
-                {"Mu Command API Browser",  docbrowser, nil}
+                {"Mu Command API Browser...",  docbrowser, nil}
         };
 
         Menu menu = Menu {{"Help", menuList}};
