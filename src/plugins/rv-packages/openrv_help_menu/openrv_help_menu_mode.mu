@@ -48,7 +48,7 @@ class: OpenRVHelpMenuMinorMode : MinorMode
 
     \: describeHelp (void; Event ev)
     {
-        displayFeedback("Describe Options (Hit 'k' for Keys, 'e' for Events)", 10e6);
+        displayFeedback("Press k to describe Keys or e to describe Events...", 10e6);
         redraw();
         pushEventTable("describe-mode");
     }
@@ -56,7 +56,7 @@ class: OpenRVHelpMenuMinorMode : MinorMode
     \: describeKeyBinding (void; Event ev)
     {
         redraw();
-        displayFeedback("Describe Options -> (Press Any Key For Description) ...", 10e6);
+        displayFeedback("Press any key to display binding...", 10e6);
         pushEventTable("describe-mode");
         pushEventTable("describe-key-mode");
     }
@@ -141,15 +141,16 @@ class: OpenRVHelpMenuMinorMode : MinorMode
                 {"_",                   nil},
                 {"   GTO File Format (.rv files)", opUrl(,"https://github.com/AcademySoftwareFoundation/OpenRV/blob/main/docs/rv-manuals/rv-gto.md"), nil},
                 {"_",                   nil},
-                {"   Open RV on GitHub", opUrl(,"https://github.com/AcademySoftwareFoundation/OpenRV"), nil},
+                {"   Academy Software Foundation Open RV", opUrl(,"https://github.com/AcademySoftwareFoundation/OpenRV"), nil},
+                {"_",                   nil},
+                {"Other Resource",    nil, nil, inactiveState},
+                {"   Mu Command API Browser...",  docbrowser, nil},
                 {"_",                   nil},
                 {"Utilities",           nil, nil, inactiveState},
                 {"   Describe...",         describeHelp, "?"},
                 {"   Describe Key Binding...", describeKeyBinding, nil},
                 {"   Show Current Bindings", dumpBindings, nil},
-                {"   Show Environment",    ~showEnv},
-                {"_",                   nil},
-                {"Mu Command API Browser",  docbrowser, nil}
+                {"   Show Environment",    ~showEnv}
         };
 
         Menu menu = Menu {{"Help", menuList}};
@@ -179,7 +180,7 @@ class: OpenRVHelpMenuMinorMode : MinorMode
         bindDescribe("key-down--k",\: (void; Event ev)
         {
             State state = data();
-            displayFeedback("Describe Options -> (Press Any Key For Description) ...", 10e6);
+            displayFeedback("Press any key to display binding...", 10e6);
             redraw();
             pushEventTable("describe-key-mode");
         });
@@ -187,7 +188,7 @@ class: OpenRVHelpMenuMinorMode : MinorMode
         bindDescribe("key-down--e",\: (void; Event ev)
         {
             State state = data();
-            displayFeedback("Describe Options -> (Escape Exits, Otherwise Show Event) ...", 10e6);
+            displayFeedback("Describe events (Esc to exit)...", 10e6);
             redraw();
             pushEventTable("describe-any-event-mode");
         });
@@ -202,18 +203,22 @@ class: OpenRVHelpMenuMinorMode : MinorMode
         {
             State state = data();
             repeat (2) popEventTable();
+            let bound_name = bindingDocumentation(ev.name());
             let name = ev.name(),
                 niceName = name.substr(10, name.size());
-
+            if(bound_name eq nil)
+            {
+                bound_name = "not bound";
+            }
             try
             {
-                displayFeedback("Key \"%s\" --> %s"
-                                % (niceName, bindingDocumentation(ev.name())),
+                displayFeedback("%s - %s"
+                                % (niceName, bound_name),
                             5.0);
             }
             catch (...)
             {
-                displayFeedback("\"%s\" is Not Bound to Anything" % niceName, 5.0);
+                displayFeedback("\"%s\" is not bound" % niceName, 5.0);
             }
             redraw();
         });
@@ -221,7 +226,7 @@ class: OpenRVHelpMenuMinorMode : MinorMode
         bind("default", "describe-any-event-mode", "key-down--escape", \: (void; Event ev)
         {
             State state = data();
-            displayFeedback("Finished Event Feedback Mode");
+            displayFeedback("Finished describe event mode");
             repeat (2) popEventTable();
             redraw();
         });
@@ -229,7 +234,7 @@ class: OpenRVHelpMenuMinorMode : MinorMode
         bindRegex("default", "describe-any-event-mode", "^(key|mod).*", \: (void; Event ev)
         {
             State state = data();
-            displayFeedback("Event  \"%s\"    (value = %d) (modifiers = %s)"
+            displayFeedback("%s - value = %d modifiers = %s"
                             % (ev.name(), ev.key(), ev.modifiers()), 5.0);
             redraw();
         });
@@ -238,7 +243,7 @@ class: OpenRVHelpMenuMinorMode : MinorMode
         \: (void; Event ev)
         {
             State state = data();
-            displayFeedback("Event  \"%s\"    (modifiers = %s)"
+            displayFeedback("%s - modifiers = %s"
                             % (ev.name(), ev.modifiers()), 5.0);
             redraw();
         });
