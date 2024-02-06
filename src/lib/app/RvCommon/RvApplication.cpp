@@ -86,8 +86,6 @@ static void init()
 #define DBL(level, x)
 #endif
 
-#define COPYRIGHT_PREFIX 0xA9
-
 // RV lazy build third party optional customization
 #if defined(RV_LAZY_BUILD_THIRD_PARTY_CUSTOMIZATION)
     extern void rvLazyBuildThirdPartyCustomization();
@@ -501,7 +499,7 @@ RvApplication::about()
     vector<char> temp;
     temp.reserve(2048);
     sprintf(temp.data(),
-            "<h1>Open RV</h1><h2>OpenRV-BHGC 2024.2.0</h2>For internal use only<p>%c 2024 contributors to the Open Review Initiative project</p>", COPYRIGHT_PREFIX
+            "<h1>Open RV</h1><h2>OpenRV-BHGC 2024.2.1</h2>For internal use only<p>&copy; 2024 contributors to the Open Review Initiative project</p>"
             );
 
     const TwkApp::Document* doc = TwkApp::Document::activeDocument();
