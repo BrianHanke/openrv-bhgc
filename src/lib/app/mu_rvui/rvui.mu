@@ -4778,7 +4778,7 @@ global let enterFrame = startTextEntryMode(\: (string;) {"Go To Frame: ";}, goto
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     let m = margins();
-    drawTextWithCartouche(m[0] + 20, h-20-sb[3] - m[2], state.feedbackText,
+    drawTextWithCartouche(m[0] + 30, h-20-sb[3] - m[2], state.feedbackText,
                           20, fg, bg,
                           state.feedbackGlyph, gc);
     glDisable(GL_BLEND);
@@ -4933,11 +4933,11 @@ global let enterFrame = startTextEntryMode(\: (string;) {"Go To Frame: ";}, goto
     if (fstatus == NoImageStatus)
     {
         t =  if t != ""
-                    then t + " -- No Image"
+                    then t + " - No Image"
                 else if statusMessage != ""
-                    then "%s -- %s" % (statusNode, statusMessage)
+                    then "%s - %s" % (statusNode, statusMessage)
                 else if statusNode != ""
-                    then statusNode + " -- No Image"
+                    then statusNode + " - No Image"
                 else "No Image";
     }
     else if (noAttrs)
@@ -4956,7 +4956,7 @@ global let enterFrame = startTextEntryMode(\: (string;) {"Go To Frame: ";}, goto
             }
             else
             {
-                t = "%s -- No Image Attributes Found" % uiName(viewNode());
+                t = "%s - No Image Attributes Found" % uiName(viewNode());
             }
         }
     }

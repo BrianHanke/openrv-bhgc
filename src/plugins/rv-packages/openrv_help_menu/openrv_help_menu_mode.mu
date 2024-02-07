@@ -203,17 +203,16 @@ class: OpenRVHelpMenuMinorMode : MinorMode
             State state = data();
             repeat (2) popEventTable();
             let bound_name = bindingDocumentation(ev.name());
-            let name = ev.name(),
-                niceName = name.substr(10, name.size());
+            let name = ev.name(), niceName = name.substr(10, name.size());
+
             if(bound_name eq nil)
             {
                 bound_name = "not bound";
             }
+
             try
             {
-                displayFeedback("%s - %s"
-                                % (niceName, bound_name),
-                            5.0);
+                displayFeedback("%s - %s" % (niceName, bound_name), 5.0);
             }
             catch (...)
             {
@@ -233,8 +232,7 @@ class: OpenRVHelpMenuMinorMode : MinorMode
         bindRegex("default", "describe-any-event-mode", "^(key|mod).*", \: (void; Event ev)
         {
             State state = data();
-            displayFeedback("%s - value = %d modifiers = %s"
-                            % (ev.name(), ev.key(), ev.modifiers()), 5.0);
+            displayFeedback("%s - value = %d modifiers = %s" % (ev.name(), ev.key(), ev.modifiers()), 5.0);
             redraw();
         });
 
@@ -242,8 +240,7 @@ class: OpenRVHelpMenuMinorMode : MinorMode
         \: (void; Event ev)
         {
             State state = data();
-            displayFeedback("%s - modifiers = %s"
-                            % (ev.name(), ev.modifiers()), 5.0);
+            displayFeedback("%s - modifiers = %s" % (ev.name(), ev.modifiers()), 5.0);
             redraw();
         });
         
