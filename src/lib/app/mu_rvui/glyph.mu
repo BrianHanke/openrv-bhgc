@@ -306,7 +306,7 @@ operator: & (Glyph; Glyph a, Glyph b)
                           Color gcolor = Color(.2,.2,.2,1))
 {
     gltext.size(textsize);
-    if (g neq nil) text = "   " + text;
+    // if (g neq nil) text = "   " + text;
 
     let b = gltext.bounds(text),
         w = b[2] + b[0],
@@ -348,14 +348,14 @@ operator: & (Glyph; Glyph a, Glyph b)
     glVertex(x0, y1);
     glEnd();
 
-    if (g neq nil)
-    {
-        glColor(gcolor);
-        draw(g, x, ymid, 0, rad, false);
-        glEnable(GL_LINE_SMOOTH);
-        glColor(gcolor * 0.8);
-        draw(g, x, ymid, 0, rad, true);
-    }
+    //if (g neq nil)
+    //{
+    //    glColor(gcolor);
+    //    draw(g, x, ymid, 0, rad, false);
+    //    glEnable(GL_LINE_SMOOTH);
+    //    glColor(gcolor * 0.8);
+    //    draw(g, x, ymid, 0, rad, true);
+    //}
 
     glPopAttrib();
 
