@@ -264,6 +264,8 @@ RvTopViewToolBar::build()
     // connect(m_shutterStereoAction, SIGNAL(triggered()), this, SLOT(shutterStereo()));
     // connect(m_swapStereoAction, SIGNAL(triggered()), this, SLOT(swapEyes()));
 
+    /**********
+
     m_channelMenuAction = addAction("Color (RGB)");
     b = dynamic_cast<QToolButton*>(widgetForAction(m_channelMenuAction));
     b->setProperty("tbstyle", QVariant(QString("view_menu")));
@@ -374,6 +376,8 @@ RvTopViewToolBar::build()
     connect(m_ditherOff, SIGNAL(triggered()), this, SLOT(ditherOff()));
     connect(m_dither8, SIGNAL(triggered()), this, SLOT(dither8()));
     connect(m_dither10, SIGNAL(triggered()), this, SLOT(dither10()));
+
+    *********/
 
     if (m_session) setSession(m_session);
 }
