@@ -6095,7 +6095,7 @@ global bool debugGC = false;
             {"Set Range In Point",    ~frameFunc(setInPoint),   "[", rangeState},
             {"Set Range Out Point",   ~frameFunc(setOutPoint),  "]", rangeState},
             {"Reset Range",            ~resetInOutPoints,  "\\",     rangeState},
-            {"Set Range Offset", setRangeOffset, nil, sourcesExistState},
+            {"Set Range Offset...", setRangeOffset, nil, sourcesExistState},
             {"_", nil},
             {"Marks/Boundaries", Menu {
                 {"Set Range From Marks/Boundaries",  ~setInOutMarkedRange, "|",      rangeState},
@@ -6142,17 +6142,17 @@ global bool debugGC = false;
                 {"Scrubbing", toggleAudioScrub, nil, scrubAudioState},
                 {"_", nil},
                 {"Global", Menu {
-                    {"Volume",  globalVolumeMode,     "control v", nil},
-                    {"Offset (Seconds)",  globalAudioOffsetMode, nil, nil},
-                    {"Offset (Frames)",  globalAudioOffsetFramesMode, nil, nil},
-                    {"Balance", globalBalanceMode,   nil, nil}}},
+                    {"Volume...",  globalVolumeMode,     "control v", nil},
+                    {"Offset (Seconds)...",  globalAudioOffsetMode, nil, nil},
+                    {"Offset (Frames)...",  globalAudioOffsetFramesMode, nil, nil},
+                    {"Balance...", globalBalanceMode,   nil, nil}}},
                 {"Source", Menu {
-                    {"Volume", sourceVolumeMode, nil, sourcesExistState},
-                    {"Offset (Seconds)", sourceAudioOffsetMode, nil, sourcesExistState},
-                    {"Offset (Frames)",  sourceAudioOffsetFramesMode, nil, sourcesExistState},
-                    {"Balance", sourceBalanceMode,   nil, sourcesExistState},
+                    {"Volume...", sourceVolumeMode, nil, sourcesExistState},
+                    {"Offset (Seconds)...", sourceAudioOffsetMode, nil, sourcesExistState},
+                    {"Offset (Frames)...",  sourceAudioOffsetFramesMode, nil, sourcesExistState},
+                    {"Balance...", sourceBalanceMode,   nil, sourcesExistState}}},
                 {"_", nil},
-                {"Reset All Offsets", resetAudioOffsets, nil, nil}}},
+                {"Reset All Offsets", resetAudioOffsets, nil, nil},
             }},
             /*  
              * Moved to prefs GUI
@@ -6175,10 +6175,6 @@ global bool debugGC = false;
             {"Top View Toolbar",    toggleTopViewToolbar,  nil, topTBShown},
             {"Bottom View Toolbar", toggleBottomViewToolbar,  nil, botTBShown},
             {"_", nil},
-            {"Force Reload Current Frame", ~reload, "R", sourcesExistState},
-            {"Force Reload Region", ~reloadInOut, "control R", sourcesExistState},
-            {"Reload Changed Frames", ~loadCurrentSourcesChangedFrames, "control C", sourcesExistState},
-            {"_", nil},
             {"Default Views", Menu {
                 {"Sequence", setCompModeAndView(nil,"defaultSequence"), nil, viewNodeState("defaultSequence")},
                 {"Replace", setCompModeAndView("replace","defaultStack"), nil, isStackAndCompMode("replace")},
@@ -6194,6 +6190,10 @@ global bool debugGC = false;
                 {"Region Cache",  cacheModeFunc(CacheGreedy), "C", cacheStateFunc(CacheGreedy)},
                 {"Cache Off", cacheModeFunc(CacheOff),  nil, cacheStateFunc(CacheOff)},
                 {"Release All Cached Images", ~releaseAllCachedImages,  nil, nil}}},
+            {"Reload", Menu {
+                {"Force Reload Current Frame", ~reload, "R", sourcesExistState},
+                {"Force Reload Region", ~reloadInOut, "control R", sourcesExistState},
+                {"Reload Changed Frames", ~loadCurrentSourcesChangedFrames, "control C", sourcesExistState}}},
             {"_", nil},
             }},
         {"Image", Menu {
@@ -6222,14 +6222,14 @@ global bool debugGC = false;
                     {"1:8",  ~pixelRelativeScale(1.0/8.0),  "control 8", videoSourcesExistState}}},
                 {"Rotation", Menu {
                     {"No Rotation",         ~rotateImage(0.0, false),    nil, rotateState(0.0)},
-                    {"90 Clockwise",        ~rotateImage(90.0, false),   nil, rotateState(90.0)},
-                    {"90 Counter-Clockwise",~rotateImage(-90.0, false),  nil, rotateState(-90.0)},
-                    {"180",                 ~rotateImage(180.0, true),  nil, rotateState(180.0)},
+                    {"90\u00B0 Clockwise",        ~rotateImage(90.0, false),   nil, rotateState(90.0)},
+                    {"90\u00B0 Counter-Clockwise",~rotateImage(-90.0, false),  nil, rotateState(-90.0)},
+                    {"180\u00B0",                 ~rotateImage(180.0, true),  nil, rotateState(180.0)},
                     {"_", nil},
-                    {"+90 Clockwise",        ~rotateImage(90.0, true),   nil, videoSourcesAndNodeExistState("RVTransform2D")},
-                    {"+90 Counter-Clockwise",~rotateImage(-90.0, true),  nil, videoSourcesAndNodeExistState("RVTransform2D")},
+                    {"+90\u00B0 Clockwise",        ~rotateImage(90.0, true),   nil, videoSourcesAndNodeExistState("RVTransform2D")},
+                    {"+90\u00B0 Counter-Clockwise",~rotateImage(-90.0, true),  nil, videoSourcesAndNodeExistState("RVTransform2D")},
                     {"_", nil},
-                    {"Arbitrary (Rotate Mode)", rotateMode,   nil, videoSourcesAndNodeExistState("RVTransform2D")}}},
+                    {"Custom Rotation...", rotateMode,   nil, videoSourcesAndNodeExistState("RVTransform2D")}}},
                 {"Alpha Type", Menu {
                     {"From Image",  ~alphaTypeFunc(0),  nil, alphaTypeState(0)},
                     {"_", nil},
@@ -6268,12 +6268,12 @@ global bool debugGC = false;
             }},
         {"Color", Menu {
             {"Interactive Edit",    nil, nil, inactiveState},
-            {"   Gamma",      gammaMode,      "y", videoSourcesAndNodeExistState("RVColor")},
-            {"   Color Offset", colorOffsetMode,  nil,  videoSourcesAndNodeExistState("RVColor")},
-            {"   Exposure",   exposureMode,   "e", videoSourcesAndNodeExistState("RVColor")},
-            {"   Saturation", saturationMode, "S", videoSourcesAndNodeExistState("RVColor")},
-            {"   Hue",        hueMode,        "h", videoSourcesAndNodeExistState("RVColor")},
-            {"   Contrast",   contrastMode,   "k", videoSourcesAndNodeExistState("RVColor")},
+            {"   Gamma...",      gammaMode,      "y", videoSourcesAndNodeExistState("RVColor")},
+            {"   Color Offset...", colorOffsetMode,  nil,  videoSourcesAndNodeExistState("RVColor")},
+            {"   Exposure...",   exposureMode,   "e", videoSourcesAndNodeExistState("RVColor")},
+            {"   Saturation...", saturationMode, "S", videoSourcesAndNodeExistState("RVColor")},
+            {"   Hue...",        hueMode,        "h", videoSourcesAndNodeExistState("RVColor")},
+            {"   Contrast...",   contrastMode,   "k", videoSourcesAndNodeExistState("RVColor")},
             {"_", nil},
             {"Invert", ~toggleInvert, "I", isInvert},
             {"_", nil},
@@ -6293,7 +6293,7 @@ global bool debugGC = false;
                 //
                 //{"_", nil},
                 //{"output LUT to shell",   ~outputLUT,    nil, nil}}},
-            {"Load Color Settings", Menu {
+            {"LUT/CDL/ICC", Menu {
                 {"Pre-Cache LUT", ~toggleCacheLUT, nil, isCacheLUTActiveState},
                 {"File LUT",      ~toggleFileLUT, nil, isFileLUTActiveState},
                 {"File CDL",      ~toggleFileCDL, nil, isFileCDLActiveState},
