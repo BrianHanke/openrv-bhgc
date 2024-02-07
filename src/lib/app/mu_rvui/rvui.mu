@@ -47,15 +47,15 @@ global Configuration globalConfig =
                   25.0,                        // wipe grab prox pixels
                   12.0,                        // wipe info text size
                   16.0,                        // moscope frame text size
-                  20.0,                        // timeline frame text size
-                  10.0,                        // timeline bounds text
+                  13.0,                        // timeline frame text size
+                  13.0,                        // timeline bounds text
                   Color(0.3, 0.3, 0.3, 1.0),   // timeline bounds
-                  Color(0.52, 0.52, 0.52, 1.0),   // timeline range
-                  Color(0.1, 0.7, 0.2, 1.0),   // timeline cache
-                  Color(0.1, 0.3, 0.6, 1.0),   // timeline cache full
+                  Color(1, 0.357, 0.0, 1.0),   // timeline range
+                  Color(0.0, 0.0, 0.0, 1.0),   // timeline cache
+                  Color(1, 0.357, 0.0, 1.0),   // timeline cache full
                   Color(0.01, 0.58, 0.85, 1.0),// timeline audio cache color
-                  Color(0.55, 0.55, 0.55, 1.0),   // timeline in/out cap color
-                  Color(0.65, 0.65, 1.0, 1.0),   // timeline mark color
+                  Color(1, 0.357, 0.0, 1.0),   // timeline in/out cap color
+                  Color(1.0, 1.0, 1.0, 1.0),   // timeline mark color
                   Color(1.0, 0.25, 0.0, 1.0),  // timeline frame skip color
                   Color(0.0, 0.0,  0.0, 1.0),  // timeline frame skip text color
                   Color(0.0, 0.0,  0.0, 1.0),  // matte color
@@ -245,7 +245,6 @@ global Configuration globalConfig =
     setLUT("Color", lut, "Luminance", "Random", lut.size()/3);
 }
 
-
 \: contourLUT ((void;); int n)
 {
     \: (void;)
@@ -426,7 +425,6 @@ global Configuration globalConfig =
     }
     redraw();
 }
-
 
 \: setRangeOffset (void; Event event)
 {
@@ -687,7 +685,6 @@ global Configuration globalConfig =
     };
 }
 
-
 \: sourcesExistState (int;)
 {
     if sources().size() > 0 then NeutralMenuState else DisabledMenuState;
@@ -836,7 +833,6 @@ global Configuration globalConfig =
     };
 }
 
-
 global let toggleFlip = toggleIntProp("#RVTransform2D.transform.flip"),
            toggleFlop = toggleIntProp("#RVTransform2D.transform.flop"),
            toggleRFlip = toggleIntProp("@RVDisplayStereo.rightTransform.flip"),
@@ -870,7 +866,6 @@ global let toggleFlip = toggleIntProp("#RVTransform2D.transform.flip"),
            isMuted = toggleIntPropState("#RVSoundTrack.audio.mute"),
            isSwapEyes = toggleIntPropState("@RVDisplayStereo.stereo.swap"),
            isSourceSwapEyes = toggleIntPropState("#RVSourceStereo.stereo.swap");
-
 
 \: toggleNormalizeColor (void; Event ev)
 {
@@ -1127,7 +1122,6 @@ global (string, Glyph)[] showChannelGlyphs =
     return 1.0 / fps;
 }
 
-
 global let gammaMode      = startParameterMode("#RVColor.color.gamma", 4.0, DefaultGamma, 0.0),
            exposureMode   = startParameterMode("#RVColor.color.exposure", 4.0, DefaultExposure),
            colorOffsetMode = startParameterMode("#RVColor.color.offset", 1.0, DefaultOffset),
@@ -1177,8 +1171,6 @@ global let gammaMode      = startParameterMode("#RVColor.color.gamma", 4.0, Defa
     };
 }
 
-
-
 \: windowActivate (void; )
 {
     State state = data();
@@ -1203,7 +1195,8 @@ global let gammaMode      = startParameterMode("#RVColor.color.gamma", 4.0, Defa
 
 \: gotoFrame (void; string text)
 {
-    if (filterLiveReviewEvents()) {
+    if (filterLiveReviewEvents()) 
+    {
         sendInternalEvent("live-review-blocked-event");
         return;
     }
@@ -1553,8 +1546,6 @@ global let enterFrame = startTextEntryMode(\: (string;) {"Go To Frame: ";}, goto
            enterFileGamma = startTextEntryMode(fileGammaPrompt, setFileGamma),
            enterMatteOpacity = startTextEntryMode(matteOpacityPrompt, setMatteOpacityValue);
 
-
-
 //
 //  Some utilities
 //
@@ -1584,7 +1575,6 @@ global let enterFrame = startTextEntryMode(\: (string;) {"Go To Frame: ";}, goto
 //
 //  Menu state update functions
 //
-
 
 \: inactiveState (int;) { DisabledMenuState; }
 
@@ -1669,7 +1659,6 @@ global let enterFrame = startTextEntryMode(\: (string;) {"Go To Frame: ";}, goto
 {
     if getFiltering() == GL_LINEAR then CheckedMenuState else UncheckedMenuState;
 }
-
 
 //
 //  Actual commands
