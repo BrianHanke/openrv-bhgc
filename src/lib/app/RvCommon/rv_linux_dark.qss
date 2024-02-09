@@ -398,6 +398,7 @@ QDockWidget::title {
 
 QTabWidget::pane {
     border: 1px solid black;
+    top: -1px;
     padding: 5px;
 }
     

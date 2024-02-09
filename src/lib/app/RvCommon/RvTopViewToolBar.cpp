@@ -142,7 +142,7 @@ RvTopViewToolBar::build()
     b->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     b->setPopupMode(QToolButton::DelayedPopup);
     b->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    b->setToolTip("Frame image in view");
+    b->setToolTip("Frame image in View");
 
     m = new QMenu(b);
     a = m->addAction("Frame");
