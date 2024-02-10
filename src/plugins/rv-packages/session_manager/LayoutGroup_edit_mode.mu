@@ -291,7 +291,7 @@ class: LayoutGroupEditMode : MinorMode
              Menu {
                  {"Layout", Menu {
                      {"Packed", layoutPackedEvent, nil, isLayoutMode("packed")},
-                     {"Packed With Fluid Layout", layoutPacked2Event, nil, isLayoutMode("packed2")},
+                     {"Packed with Fluid Layout", layoutPacked2Event, nil, isLayoutMode("packed2")},
                      {"Row", layoutInRowEvent, nil, isLayoutMode("row")},
                      {"Column", layoutInColumnEvent, nil, isLayoutMode("column")},
                      {"Grid", layoutInGridEvent, nil, isLayoutMode("grid")},
