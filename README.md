@@ -18,6 +18,9 @@ git clone --recursive https://github.com/AcademySoftwareFoundation/OpenRV.git
 3. Merge the contents of openrv-bhgc.zip with the main source code, then run:
 ```
 cd OpenRV
+rm -rf _build/src/*
+rm -rf _build/stage/*
+rm -rf _build/x64/Release/*
 source rvcmds.sh  
 rvbootstrap
 ```
