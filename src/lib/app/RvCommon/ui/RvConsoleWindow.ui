@@ -61,26 +61,6 @@
       </spacer>
      </item>
      <item>
-      <widget class="QToolButton" name="biggerButton">
-       <property name="text">
-        <string>Bigger</string>
-       </property>
-       <property name="toolButtonStyle">
-        <enum>Qt::ToolButtonIconOnly</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QToolButton" name="smallerButton">
-       <property name="text">
-        <string>Smaller</string>
-       </property>
-       <property name="toolButtonStyle">
-        <enum>Qt::ToolButtonIconOnly</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
       <spacer>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -194,38 +174,6 @@
     <hint type="destinationlabel">
      <x>497</x>
      <y>335</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>biggerButton</sender>
-   <signal>clicked()</signal>
-   <receiver>textEdit</receiver>
-   <slot>zoomIn()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>362</x>
-     <y>19</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>444</x>
-     <y>66</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>smallerButton</sender>
-   <signal>clicked()</signal>
-   <receiver>textEdit</receiver>
-   <slot>zoomOut()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>419</x>
-     <y>7</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>481</x>
-     <y>88</y>
     </hint>
    </hints>
   </connection>
