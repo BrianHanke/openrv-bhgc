@@ -2166,7 +2166,7 @@
                 <item>
                  <widget class="QCheckBox" name="exrReadWindowIsDisplayWindowToggle">
                   <property name="text">
-                   <string>Read sindow is display window</string>
+                   <string>Read window is display window</string>
                   </property>
                   <property name="checked">
                    <bool>false</bool>
