@@ -499,7 +499,7 @@ RvApplication::about()
     vector<char> temp;
     temp.reserve(2048);
     sprintf(temp.data(),
-            "<h1>Open RV</h1><h2>OpenRV-BHGC 2024.2.2</h2>For internal use only<p>&copy; 2024 contributors to the Open Review Initiative project</p>"
+            "<h1>Open RV</h1><h2>OpenRV-BHGC 2024.5.0</h2>For internal use only<p>&copy; 2024 contributors to the Open Review Initiative project</p>"
             );
 
     const TwkApp::Document* doc = TwkApp::Document::activeDocument();
