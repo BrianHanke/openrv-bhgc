@@ -745,12 +745,14 @@ class OCIOSourceSetupMode(rvtypes.MinorMode):
             )
 
         final = [
-            ("Current Source Color Space", cssList),
+            ("Current Source", None, None, lambda: commands.DisabledMenuState),
+            ("  File Color Space", cssList),
         ]
         if len(lsList) > 2:
             final += [("  Look", lsList)]
         final += [
-            ("All Sources Color Space", csaList),
+            ("All Sources", None, None, lambda: commands.DisabledMenuState),
+            ("  File Color Space", csaList),
         ]
         if len(laList) > 0:
             final += [("  Look", laList)]

@@ -3,7 +3,6 @@ This repo contains source code patch files to build OpenRV-BHGC. Improvements in
 - Updated interface style  
 - New icons  
 - Streamlined menus
-- Patch for FFmpeg-related build error  
   
 Build time is around 45 minutes on a 32 vCPU VM. VM software configuration should follow the official OpenRV [build guide](https://github.com/AcademySoftwareFoundation/OpenRV/blob/main/docs/build_system/config_windows.md): Visual Studio 2022, Strawberry Perl, MSYS2, etc.  
   
@@ -18,9 +17,11 @@ git clone --recursive https://github.com/AcademySoftwareFoundation/OpenRV.git
 3. Merge the contents of openrv-bhgc.zip with the main source code, then run:
 ```
 cd OpenRV
+# if rebuilding, delete the following first:
 rm -rf _build/src/*
 rm -rf _build/stage/*
 rm -rf _build/x64/Release/*
+# end rebuild steps
 source rvcmds.sh  
 rvbootstrap
 ```
