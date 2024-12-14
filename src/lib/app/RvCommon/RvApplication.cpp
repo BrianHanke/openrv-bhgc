@@ -713,8 +713,13 @@ RvApplication::newSessionFromFiles(const StringVector& files)
                 cerr << "ERROR: DesktopVideoModule failed" << endl;
         }
 
-        // Load audio/video output plugins
-        loadOutputPlugins("TWK_OUTPUT_PLUGIN_PATH");
+        if (!getenv("RV_SKIP_LOADING_VIDEO_OUTPUT_PLUGINS")) {
+
+            // Load audio/video output plugins
+            loadOutputPlugins("TWK_OUTPUT_PLUGIN_PATH");
+        } else {
+            cout << "WARNING: Skipping loading of video output plugins" << endl;
+        }
     }
 
     doc->session()->graph().setPhysicalDevices(videoModules());
@@ -968,7 +973,7 @@ RvApplication::prefs()
         QPushButton* b1 = box.addButton(tr("Cancel"), QMessageBox::RejectRole);
         QPushButton* b2 = box.addButton(tr("Disable Presentation Mode"), QMessageBox::AcceptRole);
 #ifdef PLATFORM_LINUX
-        box.setIconPixmap(QPixmap(qApp->applicationDirPath() + QString("/../Resources/RV.ico")).scaledToHeight(64));
+        box.setIconPixmap(QPixmap(qApp->applicationDirPath() + QString(RV_ICON_PATH_SUFFIX)).scaledToHeight(64));
 #else
         box.setIcon(QMessageBox::Critical);
 #endif
@@ -1785,7 +1790,7 @@ RvApplication::findPresentationDevice(const std::string& dpath) const
 
         if (mindex >= 0)
         {
-            VideoModule* m = videoModules()[mindex];
+            VideoModule* m = videoModules()[mindex].get();
             openVideoModule(m);
             const VideoModule::VideoDevices& devs = m->devices();
             string dname = parts[1].toUtf8().constData();
